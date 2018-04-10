@@ -1,7 +1,7 @@
 resource "aws_subnet" "mesh-vpc-subnet1" {
     vpc_id     = "${aws_vpc.mesh-vpc.id}"
     cidr_block = "10.0.0.0/24"
-    availability_zone = "us-east-1a"
+    availability_zone = "ap-southeast-2"
 
     tags {
         Name = "mesh-vpc-subnet"
