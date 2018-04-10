@@ -5,5 +5,6 @@ variable "ecs-cluster-name" {
 
 variable "ecs-key-pair-name" {
     description = "The name for the cluster."
-    default = "test"
+  #  default = "test"
+    default = "~/.ssh/id_rsa"
 }
