@@ -2,35 +2,6 @@ provider "aws" {
   region = "ap-southeast-2"
 }
 
-
-#------------------------------------------------------------------------------
-/*
-resource "aws_vpc" "mesh-vpc" {
-  cidr_block = "10.0.0.0/16"
-  enable_dns_hostnames = "true"
-  
-  tags {
-    Name = "mesh-vpc"
-  }
-}
-
-output "id" {
-  value = "${aws_vpc.mesh-vpc.id}"
-}
-*/
-
-/*
-resource "aws_internet_gateway" "mesh-vpc-internet-gateway" {
-  vpc_id = "vpc-e8eb6f8f"
-
-  tags {
-    Name = "mesh-vpc-internet-gateway"
-  }
-}
-
-*/
-
-
 resource "aws_network_acl" "mesh-vpc-network-acl" {
     vpc_id = "vpc-e8eb6f8f"
     subnet_ids = ["${aws_subnet.mesh-vpc-subnet1.id}", "${aws_subnet.mesh-vpc-subnet2.id}"]
@@ -153,10 +124,6 @@ output "subnet2-id" {
   value = "${aws_subnet.mesh-vpc-subnet2.id}"
 }
 
-
-
-
-#-----------------------------------------------------------------------------
 module "iam" {
     source = "./iam"
 }
